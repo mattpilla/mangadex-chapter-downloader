@@ -4,7 +4,7 @@ const axios = require('axios');
 const imageDownloader = require('image-downloader');
 
 const manga = process.env.MANGA;
-const chapter = process.env.CHAPTER_ID;
+const chapter = process.argv[2] || process.env.CHAPTER_ID;
 const apiUrl = 'https://mangadex.org/api/chapter/'
 
 if (!manga) {

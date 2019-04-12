@@ -20,5 +20,6 @@ Edit `.env` with the relevant information:
 - set `CHAPTER_ID` to the ID of the chapter you want to download (found in the url: red underlined part of below image)
 ![Chapter ID in url](https://i.imgur.com/ScdRjiB.png)
 - run `npm start`
+Alternatively, you can pass the chapter ID as an argument (example: `npm start -- 10122`). This will override `.env`.
 
 That's all. If anyone actually uses this and has trouble with it just message me or something.
