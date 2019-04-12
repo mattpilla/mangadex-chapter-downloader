@@ -14,7 +14,7 @@ if (!chapter) {
     return console.log('Must include chapter ID. See README.');
 }
 
-getChapter = async () => {
+const getChapter = async () => {
     try {
         let response = await axios.get(apiUrl + chapter);
         if (response.status === 200) {
@@ -29,14 +29,18 @@ getChapter = async () => {
     }
 };
 
-downloadImage = async options => {
+const downloadImage = async options => {
     try {
         const { filename, image } = await imageDownloader.image(options);
         console.log(filename);
+        return true;
     } catch (e) {
-        console.error(e)
+        console.error(e);
+        return false;
     }
 };
+
+const sleep = ms => new Promise(resolve => setTimeout(resolve, ms));
 
 (async () => {
     let meta = await getChapter();
@@ -49,9 +53,16 @@ downloadImage = async options => {
     } catch (e) {
         return console.error(e);
     }
-    await downloadImage({
-        url: `${meta.server}${meta.hash}/${meta.page_array[0]}`,
-        dest: destDir
-    });
+    let pages = meta.page_array;
+    for (let i = 0; i < pages.length; i++) {
+        let img = await downloadImage({
+            url: `${meta.server}${meta.hash}/${meta.page_array[i]}`,
+            dest: destDir
+        });
+        if (!img) {
+            return;
+        }
+        await sleep(2000);
+    }
     console.log('done');
 })();
