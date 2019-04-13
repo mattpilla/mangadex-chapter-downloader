@@ -42,12 +42,14 @@ const downloadImage = async options => {
 
 const sleep = ms => new Promise(resolve => setTimeout(resolve, ms));
 
+const safeDirName = name => name.replace(/[^a-z0-9 ]/gi, '_');
+
 (async () => {
     let meta = await getChapter();
     if (!meta) {
         return;
     }
-    let destDir = `../${manga}/volume_${meta.volume || 'misc'}/chapter_${meta.chapter || 1}`;
+    let destDir = `../${safeDirName(manga)}/volume_${safeDirName(meta.volume || 'misc')}/chapter_${safeDirName(meta.chapter || 1)}`;
     try {
         await fs.ensureDir(destDir);
     } catch (e) {
