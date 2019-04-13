@@ -64,7 +64,7 @@ const safeDirName = name => name.replace(/[^a-z0-9 ]/gi, '_');
         if (!img) {
             return;
         }
-        await sleep(2000);
+        await sleep(1000);
     }
     console.log('done');
 })();

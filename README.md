@@ -3,7 +3,7 @@
 
 This small, simple script will download all images in a manga chapter for offline reading.\
 I use [MangaDex's chapter API](https://mangadex.org/api/chapter/10122) to conveniently get meta information about the chapter.\
-To respect MangaDex's bandwidth, I wait 2 seconds between each image download.\
+To respect MangaDex's bandwidth, I wait 1 second between each image download.\
 The files are saved one directory above where you run this, in this structure:\
 `<manga title>/volume_<volume #>/chapter_<chapter #>/<filename>`
 
