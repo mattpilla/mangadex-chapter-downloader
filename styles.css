@@ -68,3 +68,24 @@ input::placeholder {
     border: none;
     border-radius: 2px;
 }
+
+.error {
+    margin-top: 16px;
+    background-color: #ff90b4;
+    color: #000;
+    padding: 8px 16px;
+    display: flex;
+    align-items: center;
+}
+
+.error > b {
+    padding-left: 4px;
+    font-size: 1.1rem;
+}
+
+.error > .x {
+    margin-left: auto;
+    cursor: pointer;
+    padding: 4px;
+    font-size: 2rem;
+}
