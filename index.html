@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>MangaDex Chapter Downloader</title>
+        <meta name="description" content="Download a chapter from MangaDex">
+        <meta name="og:description" content="Download a chapter from MangaDex">
+        <meta property="og:image" content="preview.png">
+        <meta property="og:image:type" content="image/png">
+        <meta property="og:image:width" content="32">
+        <meta property="og:image:height" content="32">
+        <meta name="theme-color" content="#ab00ff">
+        <link rel="stylesheet" href="styles.css">
+        <link href="favicon.ico" type="image/x-icon" rel="icon">
+    </head>
+    <body>
+    <body>
+        <div id="app">
+            <div id="nav">
+                <div class="set-width">
+                    MangaDex Chapter Downloader
+                </div>
+            </div>
+            <div class="set-width">
+                <div id="content">
+                    <div class="label">
+                        Enter URL of chapter <small class="example">(Example: <a href="https://mangadex.org/chapter/10122/1" target="_blank">https://mangadex.org/chapter/10122/1</a>)</small>
+                    </div>
+                    <div>
+                        <input v-model="url" placeholder="Enter URL here">
+                    </div>
+                    <button id="go-button">GO</button>
+                </div>
+            </div>
+        </div>
+        <script src="https://cdn.jsdelivr.net/npm/vue@2.6.10/dist/vue.js"></script>
+        <script src="main.js"></script>
+        <noscript>welcome to the good version of this site</noscript>
+    </body>
+</html>
