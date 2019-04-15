@@ -1,6 +1,9 @@
 # MangaDex Chapter Downloader
 > Download a chapter from https://mangadex.org
 
+## Webpage
+I'm attempting to make a version [here](https://mattpilla.github.io/mangadex-chapter-downloader/) but I'm running into CAPTCHA issues.
+
 This small, simple script will download all images in a manga chapter for offline reading.\
 I use [MangaDex's chapter API](https://mangadex.org/api/chapter/10122) to conveniently get meta information about the chapter.\
 To respect MangaDex's bandwidth, I wait 1 second between each image download.\
