@@ -10,7 +10,8 @@
         <meta property="og:image:type" content="image/png">
         <meta property="og:image:width" content="32">
         <meta property="og:image:height" content="32">
-        <meta name="theme-color" content="#ab00ff">
+        <meta name="theme-color" content="#13ff9d">
+        <meta http-equiv="Access-Control-Allow-Origin" content="*">
         <link rel="stylesheet" href="styles.css">
         <link href="favicon.ico" type="image/x-icon" rel="icon">
     </head>
@@ -25,16 +26,24 @@
             <div class="set-width">
                 <div id="content">
                     <div class="label">
-                        Enter URL of chapter <small class="example">(Example: <a href="https://mangadex.org/chapter/10122/1" target="_blank">https://mangadex.org/chapter/10122/1</a>)</small>
+                        <span>Enter URL of chapter</span>
+                        <small>(Example: <a href="https://mangadex.org/chapter/10122/1" target="_blank">https://mangadex.org/chapter/10122/1</a>)</small>
                     </div>
                     <div>
                         <input v-model="url" placeholder="Enter URL here">
                     </div>
                     <button id="go-button" @click="getChapter">GO</button>
-                    <div v-if="error" class="error">
-                        <div v-html="error"></div>
-                        <span class="x" @click="error = ''">&times;</span>
-                    </div>
+                    <template v-if="error">
+                        <div class="error">
+                            <div v-html="error"></div>
+                            <span class="x" @click="error = ''">&times;</span>
+                        </div>
+                    </template>
+                </div>
+            </div>
+            <div id="footer">
+                <div class="set-width">
+                    <a href="https://github.com/mattpilla/mangadex-chapter-downloader">https://github.com/mattpilla/mangadex-chapter-downloader</a>
                 </div>
             </div>
         </div>

@@ -1,3 +1,9 @@
+html,
+body,
+#app {
+    height: 100%;
+}
+
 body {
     background-color: #434343;
     color: #fff;
@@ -16,6 +22,8 @@ input {
     color: #000;
     border:none;
     padding: 4px;
+    width: 100%;
+    box-sizing: border-box;
 }
 
 input:focus {
@@ -34,15 +42,21 @@ input::placeholder {
 #nav {
     background-color: #202020;
     color: #fff;
-    padding: 16px;
+    padding: 16px 0;
     font-size: 1.2rem;
+}
+
+#footer {
+    margin-top: auto;
+    padding: 4px 0;
 }
 
 .set-width {
     max-width: 900px;
-    margin: auto;
+    margin: 0 auto;
     width: 100%;
     padding: 0 16px;
+    box-sizing: border-box;
 }
 
 #content {
@@ -51,11 +65,12 @@ input::placeholder {
 
 .label {
     display: flex;
+    flex-wrap: wrap;
     align-items: center;
 }
 
-.label > .example {
-    padding-left: 8px;
+.label > span {
+    padding-right: 8px;
 }
 
 #go-button {
@@ -76,6 +91,7 @@ input::placeholder {
     padding: 8px 16px;
     display: flex;
     align-items: center;
+    word-break: break-word;
 }
 
 .error > b {
