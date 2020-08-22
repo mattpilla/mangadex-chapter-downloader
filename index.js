@@ -42,7 +42,7 @@ const downloadImage = async options => {
 
 const sleep = ms => new Promise(resolve => setTimeout(resolve, ms));
 
-const safeDirName = name => name.replace(/[^a-z0-9 ]/gi, '_');
+const safeDirName = name => name.toString().replace(/[^a-z0-9 ]/gi, '_');
 
 (async () => {
     let meta = await getChapter();
