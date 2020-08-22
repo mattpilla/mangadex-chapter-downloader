@@ -1,31 +1,51 @@
+const GENERIC_ERROR = 'Something went wrong. Blame MangaDex. Maybe try again later?';
+
 new Vue({
     el: '#app',
     data: {
         url: '',
-        error: ''
+        error: '',
+        busy: false,
+        chapter: null,
+        manga: null,
     },
     methods: {
-        getChapter() {
+        async getChapter() {
+            this.busy = false;
             this.error = '';
             if (!this.url) {
                 return;
             }
-            let matches = /mangadex\.org\/chapter\/([^\/]+)/.exec(this.url);
+            const matches = /mangadex\.org\/chapter\/([^\/]+)/.exec(this.url);
             if (!matches || matches.length < 2) {
                 return this.error = `Unable to find chapter ID from given URL. Enter the URL in a form like this: <b>https://mangadex.org/chapter/10122/1</b>`;
             }
-            axios.get(`https://cors.io/?https://mangadex.org/api/chapter/${matches[1]}`).then(response => {
-                if (response.status === 200) {
-                    console.log(response.data);
-                    return response.data;
-                } else {
-                    console.log(response);
-                    return false;
+            try {
+                const res = await fetch(`https://cors-anywhere.herokuapp.com/https://mangadex.org/api/chapter/${matches[1]}`);
+                if (res.ok) {
+                    this.chapter = await res.json();
+                    this.busy = true;
+                    this.getManga();
+                    return;
                 }
-            }).catch(e => {
+                this.error = GENERIC_ERROR;
+                console.log(res);
+                return;
+            } catch (e) {
+                this.error = GENERIC_ERROR;
                 console.error(e);
-                return false;
-            });
-        }
+                return;
+            }
+        },
+        async getManga() {
+            if (!this.chapter || !this.chapter.manga_id) {
+                return;
+            }
+            const res = await fetch(`https://cors-anywhere.herokuapp.com/https://mangadex.org/api/?id=${this.chapter.manga_id}&type=manga`);
+            if (res.ok) {
+                const data = await res.json();
+                this.manga = data.manga;
+            }
+        },
     }
 });

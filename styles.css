@@ -5,6 +5,7 @@ body,
 }
 
 body {
+    font-family: 'Noto Sans', sans-serif;
     background-color: #434343;
     color: #fff;
     margin: 0;
@@ -104,4 +105,24 @@ input::placeholder {
     cursor: pointer;
     padding: 4px;
     font-size: 2rem;
+}
+
+.manga {
+    display: flex;
+    margin: 24px 0;
+}
+
+.manga > img {
+    width: 150px;
+    margin-right: 16px;
+}
+
+.manga > .info {
+    display: flex;
+    flex-direction: column;
+}
+
+.manga > .info > .title {
+    font-size: 1.25rem;
+    font-weight: bold;
 }
