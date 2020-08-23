@@ -21,7 +21,7 @@ new Vue({
                 return this.error = `Unable to find chapter ID from given URL. Enter the URL in a form like this: <b>https://mangadex.org/chapter/10122/1</b>`;
             }
             try {
-                const res = await fetch(`https://cors-anywhere.herokuapp.com/https://mangadex.org/api/chapter/${matches[1]}`);
+                const res = await fetch(`https://mangadex.org/api/chapter/${matches[1]}`);
                 if (res.ok) {
                     this.chapter = await res.json();
                     this.busy = true;
@@ -41,7 +41,7 @@ new Vue({
             if (!this.chapter || !this.chapter.manga_id) {
                 return;
             }
-            const res = await fetch(`https://cors-anywhere.herokuapp.com/https://mangadex.org/api/?id=${this.chapter.manga_id}&type=manga`);
+            const res = await fetch(`https://mangadex.org/api/?id=${this.chapter.manga_id}&type=manga`);
             if (res.ok) {
                 const data = await res.json();
                 this.manga = data.manga;
