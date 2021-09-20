@@ -2,7 +2,7 @@
     "name": "mangadex-dl",
     "version": "1.0.0",
     "dependencies": {
-        "axios": "^0.18.1",
+        "axios": "^0.21.1",
         "dotenv": "^7.0.0",
         "fs-extra": "^7.0.1",
         "image-downloader": "^3.4.2"
